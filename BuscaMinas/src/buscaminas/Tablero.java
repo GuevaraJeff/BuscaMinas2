@@ -22,7 +22,15 @@ public class Tablero {
     }
 
     public int contarMinas() {
-        return 1;
+        int respuesta=0;
+        for(int i=0;i<matriz.length;i++){
+            for(int j=0;j<matriz.length;j++){
+                if(matriz[i][j].estado=='*'){
+                    respuesta+=1;
+                }
+            }
+        }
+        return respuesta;
     }
 
     public void colocarCasillas() {
@@ -32,5 +40,10 @@ public class Tablero {
           }
          }
     }
+
+    public int contarMinasAlrededor(int x, int y) {
+       
+    }
+    
     
 }

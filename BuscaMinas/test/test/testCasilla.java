@@ -30,4 +30,19 @@ public class testCasilla {
         
         assertFalse(respuesta);
     }
+    @Test
+    public void testCasillaTapada(){
+        Casilla casilla=new Casilla();
+        casilla.Tapar();
+        boolean respuesta=casilla.casillaTapada();
+        assertTrue(respuesta);
+                
+    }
+    @Test
+    public void testCasillaDestapada(){
+        Casilla casilla=new Casilla();
+        casilla.Destapar();
+        boolean respuesta=casilla.casillaTapada();
+        assertFalse(respuesta);
+    }
 }

@@ -10,7 +10,7 @@ package buscaminas;
  * @author Maurisio
  */
 public class  Casilla {
-    char estado;
+    public char estado;
     public Casilla()
     {
         this.estado =' ';
@@ -21,6 +21,18 @@ public class  Casilla {
 
     public void minar() {
         estado = '*';
+    }
+
+    public void Tapar() {
+        estado='t';
+    }
+
+    public boolean casillaTapada() {
+        return estado=='t';
+    }
+
+    public void Destapar() {
+        estado='d';
     }
    
 }
