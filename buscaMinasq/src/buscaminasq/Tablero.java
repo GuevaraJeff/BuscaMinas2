@@ -5,14 +5,18 @@
  */
 package buscaminasq;
 
+import java.util.Random;
+
 /**
  *
  * @author Maurisio
  */
  public class Tablero {
     public Casilla[][] matriz;
+    private int tamanho;
     public Tablero(int tamanho){
         matriz=new Casilla[tamanho][tamanho];
+        tamanho=matriz.length;
     }
 
     public boolean valido() {
@@ -60,8 +64,13 @@ package buscaminasq;
     }
 
     public void colcarMinas(int i) {
-        
-    }
+        Random random=new Random();
+        for(int r=1;r<=i;r++){
+            int x=random.nextInt(matriz.length);//falla aqui porque coloca una mina en el mismo lugar, es deir genera numeros aleatorios iguales
+            int y=random.nextInt(matriz.length);
+            matriz[x][y].minar();
+        }
+    }   
 
     
     
