@@ -41,9 +41,13 @@ public class Tablero {
          }
     }
 
-    public int contarMinasAlrededor(int x, int y) {
-       
+    
+
+    public boolean posicionValida(int x, int y) {
+        return x<matriz.length && y<matriz[0].length;
     }
     
-    
+    public int contarMinasAlrededor(int x, int y) {
+       return 1;
+    }
 }

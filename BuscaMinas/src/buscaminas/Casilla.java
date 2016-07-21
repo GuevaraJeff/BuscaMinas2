@@ -11,10 +11,12 @@ package buscaminas;
  */
 public class  Casilla {
     public char estado;
+    public char estadoSecundario;//falta implemtentar los metodos necesarios para que esto funcione
     public Casilla()
     {
         this.estado =' ';
-    }
+        this.estadoSecundario='t'; 
+   }
     public boolean casillaVacia() {
         return estado == ' ';
     }

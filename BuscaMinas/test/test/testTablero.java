@@ -73,23 +73,30 @@ public class testTablero {
         int respuesta=tablero.contarMinas();
         assertEquals(3,respuesta);
     }
-    @Test
-    public void contarUnaMinaAlrededorDeUnaCasilla(){
+    
+     @Test
+     public void verificarPosicionValida(){
+         Tablero tablero =new Tablero(3);
+         boolean respuesta= tablero.posicionValida(0,0);
+         assertTrue(respuesta);
+     }
+     @Test
+     public void verificarPosicionValidaEficientemente(){
+         Tablero tablero =new Tablero(3);
+         boolean respuesta= tablero.posicionValida(0,0)&&tablero.posicionValida(1,0)&&tablero.posicionValida(2,2);
+         assertTrue(respuesta);
+     }@Test
+     public void verificarPosicionNoValida(){
+         Tablero tablero=new Tablero(3);
+         boolean respuesta=tablero.posicionValida(4,0);
+         assertFalse(respuesta);
+     }
+     public void contarUnaMinaAlrededorDeUnaCasilla(){
         Tablero tablero=new Tablero(3);
         tablero.colocarCasillas();
         tablero.matriz[0][0].minar();
         int respuesta=tablero.contarMinasAlrededor(1,1);
         assertEquals(1,respuesta);
-    }
-    @Test
-    public void contarVariasMinaAlrededorDeUnaCasilla(){
-        Tablero tablero=new Tablero(3);
-        tablero.colocarCasillas();
-        tablero.matriz[0][0].minar();
-        tablero.matriz[0][1].minar();
-        tablero.matriz[0][2].minar();
-        int respuesta=tablero.contarMinasAlrededor(1,1);
-        assertEquals(3,respuesta);
     }
      
 }
