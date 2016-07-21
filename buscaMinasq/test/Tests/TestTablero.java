@@ -110,4 +110,23 @@ public class TestTablero {
          int respuesta=tablero.contarMinasAlrededor(1,1);
          assertEquals(4,respuesta);
      }
+     @Test
+     public void colocarMinaEnTablero(){
+         Tablero tablero=new Tablero(3);
+         tablero.colocarCasillas();
+         tablero.colcarMinas(1);
+         int respuesta=tablero.contarMinas();
+         assertEquals(1,respuesta);
+         
+     }
+     @Test
+     public void colocarVariasMinasEnTablero(){
+         Tablero tablero=new Tablero(3);
+         tablero.colocarCasillas();
+         tablero.colcarMinas(3);
+         int respuesta=tablero.contarMinas();
+         assertEquals(3,respuesta);
+         
+     }
+     
 }

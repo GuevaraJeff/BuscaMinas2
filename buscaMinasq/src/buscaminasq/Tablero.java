@@ -58,4 +58,11 @@ package buscaminasq;
         matriz[x][y].minasCercanas=respuesta;
         return respuesta;
     }
+
+    public void colcarMinas(int i) {
+        
+    }
+
+    
+    
 }
