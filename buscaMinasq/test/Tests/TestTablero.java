@@ -85,4 +85,29 @@ public class TestTablero {
          boolean respuesta= tablero.posicionValida(0,0);
          assertTrue(respuesta);
      }
+     @Test
+     public void verificarPosicionNoValida(){
+         Tablero tablero =new Tablero(3);
+         boolean respuesta= tablero.posicionValida(3,0);
+         assertFalse(respuesta);
+     }
+     @Test
+     public void contarUnaMinaAlrededorCasilla(){
+         Tablero tablero=new Tablero(3);
+         tablero.colocarCasillas();
+         tablero.matriz[0][0].minar();
+         int respuesta=tablero.contarMinasAlrededor(1,1);
+         assertEquals(1,respuesta);
+     }
+     @Test
+     public void contarMinasAlrededorCasilla(){
+         Tablero tablero=new Tablero(3);
+         tablero.colocarCasillas();
+         tablero.matriz[0][0].minar();
+         tablero.matriz[0][1].minar();
+         tablero.matriz[0][2].minar();
+         tablero.matriz[1][0].minar();
+         int respuesta=tablero.contarMinasAlrededor(1,1);
+         assertEquals(4,respuesta);
+     }
 }

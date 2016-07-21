@@ -12,10 +12,12 @@ package buscaminasq;
 public class Casilla {
     public char estado;
     public boolean minada;
+    int minasCercanas;
     
     public Casilla(){
         estado='T';
         minada=false;
+        minasCercanas=0;
     }
 
     

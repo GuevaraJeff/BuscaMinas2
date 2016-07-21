@@ -39,4 +39,23 @@ package buscaminasq;
         }
         return respuesta;
     }
+
+    public boolean posicionValida(int x, int y) {
+        return x<matriz.length&&y<matriz[0].length;
+    }
+
+    public int contarMinasAlrededor(int x, int y) {
+        int respuesta=0;
+        //return norte(x,y)+sud()+este()+oeste()+noroeste()+noreste()+sudoeste()+sudeste();
+        if(posicionValida(x+1,y)&&matriz[x+1][y].minada)respuesta+=1;
+        if(posicionValida(x-1,y)&&matriz[x-1][y].minada)respuesta+=1;
+        if(posicionValida(x,y-1)&&matriz[x][y-1].minada)respuesta+=1;
+        if(posicionValida(x,y+1)&&matriz[x][y+1].minada)respuesta+=1;
+        if(posicionValida(x+1,y-1)&&matriz[x+1][y-1].minada)respuesta+=1;
+        if(posicionValida(x-1,y-1)&&matriz[x-1][y-1].minada)respuesta+=1;
+        if(posicionValida(x-1,y+1)&&matriz[x-1][y+1].minada)respuesta+=1;
+        if(posicionValida(x+1,y+1)&&matriz[x+1][y+1].minada)respuesta+=1;
+        matriz[x][y].minasCercanas=respuesta;
+        return respuesta;
+    }
 }
