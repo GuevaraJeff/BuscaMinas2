@@ -6,6 +6,7 @@
 package Tests;
 
 
+import buscaminasq.Tablero;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -15,5 +16,73 @@ import static org.junit.Assert.*;
  */
 public class TestTablero {
     
+   @Test 
+  public void verificarTamanho1(){
+      Tablero tablero = new Tablero(1);
+      int tamanho = tablero.matriz.length;
+      
+      assertEquals(1,tamanho);
+  }
+  @Test
+   public void verificartamanhonovalido(){
+     Tablero tablero=new Tablero(1);
+     boolean respuesta = tablero.valido();
+  
+     assertTrue(respuesta);
+    }
    
+   @Test 
+   public void verificarTamanhoNoValido(){
+   
+     Tablero tablero=new Tablero(0);
+     boolean respuesta = tablero.valido();
+  
+     assertFalse(respuesta);
+     
+    }
+   
+    @Test
+     public void verificarUnaCasillaCreadas(){
+     Tablero tablero=new Tablero(2);
+     tablero.colocarCasillas();
+     
+     assertNotNull(tablero.matriz[0][0]);
+   }
+     
+    @Test
+    public void verificarVariasCasillasCreadas(){
+     Tablero tablero=new Tablero(2);
+     tablero.colocarCasillas();
+     
+     assertNotNull(tablero.matriz[0][0]);
+     assertNotNull(tablero.matriz[1][0]);
+     assertNotNull(tablero.matriz[1][1]);
+     assertNotNull(tablero.matriz[0][1]);
+    }
+    
+    @Test
+    public void contarUnaMina(){
+        Tablero tablero=new Tablero(2);
+        tablero.colocarCasillas();
+        tablero.matriz[0][0].minar();
+        int respuesta= tablero.contarMinas();
+        assertEquals(1,respuesta);
+    }
+    
+    @Test
+    public void contarVariasMinas(){
+        Tablero tablero=new Tablero(2);
+        tablero.colocarCasillas();
+        tablero.matriz[0][0].minar();
+        tablero.matriz[0][1].minar();
+        tablero.matriz[1][1].minar();
+        int respuesta=tablero.contarMinas();
+        assertEquals(3,respuesta);
+    }
+    @Test
+     public void verificarPosicionValida(){
+         Tablero tablero =new Tablero(3);
+         boolean respuesta= tablero.posicionValida(0,0);
+         assertTrue(respuesta);
+     }
 }
