@@ -128,13 +128,35 @@ public class TestTablero {
          assertEquals(3,respuesta);
          
      }
-     @Test
+    @Test
      public void seleccionarUnaCasilla(){
-         Tablero tablero=new Tablero(3);
-         tablero.colocarCasillas();
-         tablero.pulsarCasilla(0,0);
-         boolean respuesta= tablero.matriz[0][0].estado =='D';
-     }
-     @
+        Tablero tablero=new Tablero(3);
+        tablero.colocarCasillas();
+        tablero.revelarCasilla(0,0);
+        boolean respuesta= tablero.matriz[0][0].estado =='D';
+        assertTrue(respuesta);
+    }
+    @Test
+    public void contarCasillasSinRevelar(){
+        Tablero tablero=new Tablero(3);
+        tablero.colocarCasillas();
+        int respuesta=tablero.contarCasillasNoReveladas();
+        assertEquals(9,respuesta);
+    }
+    @Test
+    public void contarUnaCasillaSinRevelar(){
+        Tablero tablero=new Tablero(3);
+        tablero.colocarCasillas();
+        tablero.matriz[0][0].destapar();
+        tablero.matriz[0][1].destapar();
+        tablero.matriz[0][2].destapar();
+        tablero.matriz[1][0].destapar();
+        tablero.matriz[1][2].destapar();
+        tablero.matriz[2][0].destapar();
+        tablero.matriz[2][1].destapar();
+        tablero.matriz[2][2].destapar();
+        int respuesta=tablero.contarCasillasNoReveladas();
+        assertEquals(1,respuesta);
+    }
      
 }

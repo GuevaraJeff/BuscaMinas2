@@ -17,6 +17,7 @@ import java.util.Random;
     public Tablero(int tamanho){
         matriz=new Casilla[tamanho][tamanho];
         
+        
     }
 
     public boolean valido() {
@@ -73,12 +74,21 @@ import java.util.Random;
                 r++;
             }
         }
-    }   
+    }     
 
-    public void pulsarCasilla(int x,int y) {
-       matriz[x][y].destapar();
+    public void revelarCasilla(int x, int y) {
+        matriz[x][y].destapar();
     }
 
-    
-    
+    public int contarCasillasNoReveladas() {
+       int respuesta=0;
+       for(int i=0;i<matriz.length;i++){
+           for(int j=0;j<matriz.length;j++){
+               if(matriz[i][j].casillaTapada()){
+                   respuesta+=1;
+               }
+           }
+       }
+       return respuesta;
+    }
 }
