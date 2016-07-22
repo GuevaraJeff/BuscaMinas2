@@ -128,5 +128,13 @@ public class TestTablero {
          assertEquals(3,respuesta);
          
      }
+     @Test
+     public void seleccionarUnaCasilla(){
+         Tablero tablero=new Tablero(3);
+         tablero.colocarCasillas();
+         tablero.pulsarCasilla(0,0);
+         boolean respuesta= tablero.matriz[0][0].estado =='D';
+     }
+     @
      
 }
